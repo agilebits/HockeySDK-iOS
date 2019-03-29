@@ -541,10 +541,11 @@ static bitstadium_info_t bitstadium_library_info __attribute__((section("__TEXT,
 
 #if HOCKEYSDK_FEATURE_UPDATES
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *) __unused change context:(void *) __unused context {
+  NSObject *objectObject = (NSObject *)object;
   if ([keyPath isEqualToString:@"identified"] &&
-      [object valueForKey:@"isIdentified"] ) {
+      [objectObject valueForKey:@"isIdentified"] ) {
     if (self.appEnvironment != BITEnvironmentAppStore) {
-      BOOL identified = [(NSNumber *)[object valueForKey:@"isIdentified"] boolValue];
+      BOOL identified = [(NSNumber *)[objectObject valueForKey:@"isIdentified"] boolValue];
       if (identified && ![self isUpdateManagerDisabled]) {
         [self invokeStartUpdateManager];
       }

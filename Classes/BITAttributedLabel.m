@@ -1205,7 +1205,7 @@ afterInheritingLabelAttributesAndConfiguringWithBlock:(NSMutableAttributedString
         CGFloat textWidth = [self sizeThatFits:maxSize].width;
         CGFloat availableWidth = self.frame.size.width * self.numberOfLines;
         if (self.numberOfLines > 1 && self.lineBreakMode == BITLineBreakByWordWrapping) {
-            textWidth *= kBITLineBreakWordWrapTextWidthScalingFactor;
+            textWidth *= (CGFloat)kBITLineBreakWordWrapTextWidthScalingFactor;
         }
 
         if (textWidth > availableWidth && textWidth > 0.0f) {
